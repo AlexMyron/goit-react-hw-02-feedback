@@ -1,0 +1,31 @@
+.boxWrapper {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 25px;
+  padding-right: 25px;
+
+  border: none;
+  border-radius: 4px;
+  box-shadow: 2px 5px 5px -5px rgba(34, 60, 80, 0.6);
+
+  /* background-color: rgb(18, 70, 182); */
+  background-color: rgb(87, 130, 223);
+  font-size: 18px;
+  color: #ffffff;
+
+  transition: all 250ms ease;
+}
+.btn:hover,
+.btn:focus {
+  color: #000000;
+  background-color: rgb(196, 197, 255);
+}
+
+.btn:active {
+  box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.6) inset;
+}

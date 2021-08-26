@@ -1,0 +1,15 @@
+.spanWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.output,
+.total {
+  text-transform: capitalize;
+  font-weight: 500;
+}
+
+.total {
+  font-size: 22px;
+}
