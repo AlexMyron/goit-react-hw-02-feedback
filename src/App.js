@@ -32,6 +32,7 @@ class App extends Component {
     const { state, countTotalFeedback, countPositiveFeedbackPercentage } = this;
     const isAnyFeedbacks = Boolean(this.countTotalFeedback());
     const positiveInPersent = countPositiveFeedbackPercentage();
+    const totalFeedbacks = countTotalFeedback();
 
     return (
       <div className="App">
@@ -42,7 +43,7 @@ class App extends Component {
           {isAnyFeedbacks && (
             <Statistics
               feedbackOptions={state}
-              totalFeedback={countTotalFeedback}
+              totalFeedbacks={totalFeedbacks}
               positivePercentage={positiveInPersent}
             />
           )}

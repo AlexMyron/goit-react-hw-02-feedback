@@ -1,8 +1,11 @@
 import PropTypes from "prop-types";
 import s from "./Statistics.module.css";
 
-const Statistics = ({ totalFeedback, positivePercentage, feedbackOptions }) => {
-  const total = totalFeedback();
+const Statistics = ({
+  totalFeedbacks,
+  positivePercentage,
+  feedbackOptions,
+}) => {
   const { good, neutral, bad } = feedbackOptions;
 
   return (
@@ -11,7 +14,7 @@ const Statistics = ({ totalFeedback, positivePercentage, feedbackOptions }) => {
         <span className={s.output}>good: {good}</span>
         <span className={s.output}>neutral: {neutral}</span>
         <span className={s.output}>bad: {bad}</span>
-        <span className={s.total}>total: {total}</span>
+        <span className={s.total}>total: {totalFeedbacks}</span>
         <span className={s.total}>
           positive feedbacks:{" "}
           {isNaN(positivePercentage) ? "0" : positivePercentage}%
