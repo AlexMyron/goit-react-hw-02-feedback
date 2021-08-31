@@ -13,11 +13,7 @@ class App extends Component {
   };
 
   addFeedback = (value) => {
-    this.setState((prevState) => {
-      if (value === "good") return { good: prevState.good + 1 };
-      if (value === "neutral") return { neutral: prevState.neutral + 1 };
-      if (value === "bad") return { bad: prevState.bad + 1 };
-    });
+    this.setState((prevState) => ({ [value]: prevState[value] + 1 }));
   };
 
   countTotalFeedback = () => {
@@ -41,7 +37,6 @@ class App extends Component {
         <Section title="Please leave a feedback">
           <FeedbackOptions onLeaveFeedback={this.addFeedback} />
         </Section>
-
         <Section title="Statistics">
           {isAnyFeedbacks && (
             <Statistics
