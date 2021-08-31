@@ -1,14 +1,9 @@
 import PropTypes from "prop-types";
 import s from "./Statistics.module.css";
 
-const Statistics = ({
-  good,
-  neutral,
-  bad,
-  totalFeedback,
-  positivePercentage,
-}) => {
+const Statistics = ({ totalFeedback, positivePercentage, feedbackOptions }) => {
   const total = totalFeedback();
+  const { good, neutral, bad } = feedbackOptions;
 
   return (
     <div className="box">
@@ -19,7 +14,7 @@ const Statistics = ({
         <span className={s.total}>total: {total}</span>
         <span className={s.total}>
           positive feedbacks:{" "}
-          {isNaN(positivePercentage()) ? "0" : positivePercentage()}%
+          {isNaN(positivePercentage) ? "0" : positivePercentage}%
         </span>
       </div>
     </div>
@@ -27,10 +22,12 @@ const Statistics = ({
 };
 
 Statistics.propTypes = {
-  good: PropTypes.number.isRequired,
-  neutral: PropTypes.number.isRequired,
-  bad: PropTypes.number.isRequired,
   totalFeedback: PropTypes.func,
-  persentage: PropTypes.func,
+  persentage: PropTypes.number,
+  feedbackOptions: PropTypes.exact({
+    good: PropTypes.number.isRequired,
+    neutral: PropTypes.number.isRequired,
+    bad: PropTypes.number.isRequired,
+  }),
 };
 export default Statistics;

@@ -29,8 +29,9 @@ class App extends Component {
   };
 
   render() {
-    const { good, neutral, bad } = this.state;
+    const { state, countTotalFeedback, countPositiveFeedbackPercentage } = this;
     const isAnyFeedbacks = Boolean(this.countTotalFeedback());
+    const positiveInPersent = countPositiveFeedbackPercentage();
 
     return (
       <div className="App">
@@ -40,11 +41,9 @@ class App extends Component {
         <Section title="Statistics">
           {isAnyFeedbacks && (
             <Statistics
-              good={good}
-              neutral={neutral}
-              bad={bad}
-              totalFeedback={this.countTotalFeedback}
-              positivePercentage={this.countPositiveFeedbackPercentage}
+              feedbackOptions={state}
+              totalFeedback={countTotalFeedback}
+              positivePercentage={positiveInPersent}
             />
           )}
         </Section>
